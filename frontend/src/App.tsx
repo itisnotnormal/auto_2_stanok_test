@@ -3,6 +3,7 @@ import { Routes, Route, useNavigate } from 'react-router-dom'
 import type { Machine } from './types'
 import MachineCard from './components/MachineCard'
 import MachinePage from './pages/MachinePage'
+import TopologyDashboard from './pages/TopologyDashboard'
 import './App.css'
 
 const POLL_MS = 5000
@@ -69,7 +70,8 @@ function Dashboard() {
 export default function App() {
   return (
     <Routes>
-      <Route path="/" element={<Dashboard />} />
+      <Route path="/" element={<TopologyDashboard />} />
+      <Route path="/grid" element={<Dashboard />} />
       <Route path="/machine/:id" element={<MachinePage />} />
     </Routes>
   )

@@ -5,6 +5,7 @@ import {
   ResponsiveContainer,
 } from 'recharts'
 import type { Machine, LogEntry } from '../types'
+import ExtendedStats from '../components/ExtendedStats'
 import './MachinePage.css'
 
 type Period = 'day' | 'week' | 'year' | 'all'
@@ -140,6 +141,7 @@ export default function MachinePage() {
   const [events, setEvents]     = useState<LogEntry[]>([])
   const [period, setPeriod]     = useState<Period>('day')
   const [hoverIdx, setHoverIdx] = useState<number | null>(null)
+  const [showStats, setShowStats] = useState(false)
 
   useEffect(() => {
     const load = () =>
@@ -196,6 +198,9 @@ export default function MachinePage() {
             {p.label}
           </button>
         ))}
+        <button className="mp-stats-btn" onClick={() => setShowStats(true)}>
+          📊 Расширенная статистика
+        </button>
       </div>
 
       {/* Timeline */}
@@ -319,6 +324,10 @@ export default function MachinePage() {
           ))}
         </div>
       </section>
+
+      {showStats && (
+        <ExtendedStats machine={machine} events={events} onClose={() => setShowStats(false)} />
+      )}
     </div>
   )
 }

@@ -3,9 +3,9 @@
 #include <WiFiClient.h>
 
 // ───── Настройки ─────
-const char* WIFI_SSID     = "ilya";
-const char* WIFI_PASSWORD = "12344321";
-const char* SERVER_URL    = "http://10.139.108.241:8080/api/machine-status";
+const char* WIFI_SSID     = "Beeline_2.4G_1DD7";
+const char* WIFI_PASSWORD = "k87058616517";
+const char* SERVER_URL    = "http://192.168.0.13:8080/api/machine-status";
 const int   MACHINE_ID    = 1;
 const int   SEND_INTERVAL = 5000; // мс
 
