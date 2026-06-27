@@ -1,0 +1,116 @@
+.app {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 32px 28px 64px;
+  min-height: 100vh;
+}
+
+.app-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 6px;
+}
+
+.app-title {
+  font-family: var(--font-display);
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+}
+
+.app-title-mark {
+  font-size: 28px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  color: var(--accent);
+}
+
+.app-title-sep {
+  color: var(--text-dim);
+  font-size: 22px;
+}
+
+.app-title-sub {
+  font-size: 20px;
+  font-weight: 600;
+  color: var(--text);
+  letter-spacing: 0.02em;
+}
+
+.conn-pill {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-mono);
+  font-size: 12px;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  padding: 6px 14px;
+  border-radius: 999px;
+  border: 1px solid var(--border);
+  color: var(--text-muted);
+  transition: border-color 0.3s;
+}
+
+.conn-pill.is-on { border-color: #2ed57330; }
+.conn-pill.is-off { border-color: #ff475730; color: var(--c-error); }
+
+.conn-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--c-work);
+  animation: connPulse 2s infinite;
+}
+
+.conn-pill.is-off .conn-dot {
+  background: var(--c-error);
+  animation: none;
+}
+
+@keyframes connPulse {
+  0%   { box-shadow: 0 0 0 0   rgba(46,213,115,0.55); }
+  70%  { box-shadow: 0 0 0 6px rgba(46,213,115,0); }
+  100% { box-shadow: 0 0 0 0   rgba(46,213,115,0); }
+}
+
+.app-hint {
+  margin: 0 0 28px;
+  font-size: 13px;
+  color: var(--text-dim);
+}
+
+.app-empty {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 120px 0;
+  gap: 12px;
+  color: var(--text-muted);
+  font-size: 15px;
+}
+
+.app-empty-icon {
+  font-size: 40px;
+  margin-bottom: 8px;
+  opacity: 0.5;
+}
+
+.app-empty-hint {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  color: var(--text-dim);
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 16px;
+}
+
+@media (max-width: 600px) {
+  .app { padding: 20px 16px 48px; }
+  .app-header { flex-direction: column; align-items: flex-start; gap: 12px; }
+}

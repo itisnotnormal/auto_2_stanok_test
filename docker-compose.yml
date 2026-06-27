@@ -1,0 +1,15 @@
+services:
+  postgres:
+    image: postgres:16-alpine
+    environment:
+      POSTGRES_DB: cnc_monitor
+      POSTGRES_USER: cnc
+      POSTGRES_PASSWORD: cnc_pass
+    ports:
+      - "5433:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    restart: unless-stopped
+
+volumes:
+  pgdata:
